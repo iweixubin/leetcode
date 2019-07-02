@@ -9,7 +9,7 @@ namespace LeetCode
             ITest subject = null;
 
             //
-            subject = new NumberOfIslands();
+            subject = new OpenTheLock();
 
             if (subject == null)
             {
@@ -17,7 +17,7 @@ namespace LeetCode
             }
             else
             {
-                Console.WriteLine($"现在演示的是：{subject.GetType().Name}");
+                Console.WriteLine($"现在演示的是：{subject.GetType().Name}{Environment.NewLine}");
 
                 subject.Play();
             }
