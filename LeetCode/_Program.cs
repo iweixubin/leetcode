@@ -6,10 +6,7 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            ITest subject = null;
-
-            //
-            subject = new OpenTheLock();
+            var subject = new PerfectSquares();
 
             if (subject == null)
             {
@@ -24,12 +21,5 @@ namespace LeetCode
 
             Console.ReadLine();
         }
-    }
-
-    // 用来实现多态，
-    // 放在这里违反了编程约定，但真的不想创建多一个文件~
-    interface ITest
-    {
-        void Play();
     }
 }

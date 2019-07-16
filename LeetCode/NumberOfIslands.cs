@@ -5,7 +5,7 @@ namespace LeetCode
     // 题目(英文版)：https://leetcode.com/problems/number-of-islands/
     // 题目(中文版)：https://leetcode-cn.com/problems/number-of-islands/
     // 解题思路请看《图解算法》中的 广度优先搜索
-    class NumberOfIslands : ITest
+    class NumberOfIslands
     {
         public int NumIslands(char[][] grid)
         {

@@ -4,7 +4,10 @@ using System.Text;
 using System.Linq;
 namespace LeetCode
 {
-    class OpenTheLock : ITest
+    // 题目(英文版)：https://leetcode.com/problems/open-the-lock
+    // 题目(中文版)：https://leetcode-cn.com/problems/open-the-lock
+    // 解题思路请看《图解算法》中的 广度优先搜索
+    class OpenTheLock
     {
         public int OpenLock(string[] deadends, string target)
         {
