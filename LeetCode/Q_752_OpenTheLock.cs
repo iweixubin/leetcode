@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+
 namespace LeetCode
 {
-    // 题目(英文版)：https://leetcode.com/problems/open-the-lock
-    // 题目(中文版)：https://leetcode-cn.com/problems/open-the-lock
-    // 解题思路请看《图解算法》中的 广度优先搜索
-    class OpenTheLock
+    /// <summary>
+    /// 打开转盘锁
+    /// </summary>
+    public class OpenTheLock
     {
+        // 解题思路请看《图解算法》中的 广度优先搜索
+
         public int OpenLock(string[] deadends, string target)
         {
             var deadNums = new Dictionary<int, int>(32);
@@ -22,7 +25,7 @@ namespace LeetCode
                 var deadNum = int.Parse("10" + deadends[i]);
 
                 // 要判断是否重复，LeetCode 的测试用例有重复的
-                if(!deadNums.ContainsKey(deadNum))
+                if (!deadNums.ContainsKey(deadNum))
                     deadNums.Add(deadNum, deadNum);
             }
 
@@ -91,7 +94,7 @@ namespace LeetCode
             return -1;
         }
 
-        
+
         /// <summary>
         /// 广度优先搜索，获取每个节点所能到达其它节点。
         /// </summary>
@@ -150,66 +153,5 @@ namespace LeetCode
             return result;
 
         }
-
-
-
-        //---------华丽分割线---------
-
-        
-        
-        public void Play()
-        {
-            TestA();
-            TestB();
-            TestC();
-            TestD();
-        }
-
-
-        private void TestA()
-        {
-            var deadends = new string[] { "0201", "0101", "0102", "1212", "2002" };
-            var target = "0202";
-
-            var step = OpenLock(deadends, target);
-
-            Console.WriteLine($"TestA 答案转动拨轮次数：6 , 测试所得转动拨轮次数：{step}");
-            Console.WriteLine();
-        }
-
-        private void TestB()
-        {
-            var deadends = new string[] { "8888" };
-            var target = "0009";
-
-            var step = OpenLock(deadends, target);
-
-            Console.WriteLine($"TestB 答案转动拨轮次数：1 , 测试所得转动拨轮次数：{step}");
-            Console.WriteLine();
-        }
-
-
-        private void TestC()
-        {
-            var deadends = new string[] { "8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888" };
-            var target = "8888";
-
-            var step = OpenLock(deadends, target);
-
-            Console.WriteLine($"TestC 答案转动拨轮次数：-1 , 测试所得转动拨轮次数：{step}");
-            Console.WriteLine();
-        }
-
-        private void TestD()
-        {
-            var deadends = new string[] { "0000" };
-            var target = "8888";
-
-            var step = OpenLock(deadends, target);
-
-            Console.WriteLine($"TestD 答案转动拨轮次数：-1 , 测试所得转动拨轮次数：{step}");
-            Console.WriteLine();
-        }
-
     }
 }

@@ -6,6 +6,9 @@ using System.Diagnostics;
 
 namespace LeetCode
 {
+    /// <summary>
+    /// 完全平方数
+    /// </summary>
     public class PerfectSquares
     {
         public int NumSquares(int n)
@@ -19,7 +22,7 @@ namespace LeetCode
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
-        private int Recursion(int n)
+        public int Recursion(int n)
         {
             if (n < 1) return 0;
 
@@ -62,7 +65,7 @@ namespace LeetCode
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
-        private int RecursionMS(int n)
+        public int RecursionMS(int n)
         {
             // 在上面的递归例子中，重叠子问题。
             //https://blog.csdn.net/qq_20011607/article/details/82929611
@@ -123,7 +126,7 @@ namespace LeetCode
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
-        private int DP(int n)
+        public int DP(int n)
         {
             //  动态规划用 dp[i] 数组存储第 i 个数的完美平方数
             //  1    2       3     4      5       6       7       8     9    10      11             12           13   14   15   16 --数组索引
@@ -193,64 +196,5 @@ namespace LeetCode
 
 
         //Lagrange 四平方定理： 任何一个正整数都可以表示成不超过四个整数的平方之和。
-
-
-
-        public void Play()
-        {
-            // 8328 是 LeetCode 测试用例 530 / 588 
-            // 7929 是 LeetCode 测试用例 553 / 588 
-            // 5374 是 LeetCode 测试用例 554 / 588 
-            const int TestNum = 5374;//34567;
-            Stopwatch sw = new Stopwatch();
-
-            TestRecursion(TestNum, sw);
-
-            // 虽然慢过 Recursion()，但缓存的思想还是要的
-            //TestRecursionMS(TestNum, sw);
-
-            TestDP(TestNum, sw);
-        }
-
-
-        private void TestRecursion(int testNum, Stopwatch sw)
-        {
-
-            sw.Restart();
-
-            var count = Recursion(testNum);
-
-            long ms = sw.ElapsedMilliseconds;
-
-            Console.WriteLine($"测试数值：{testNum},需要最少 {count} 个平方数,Recursion 方法使用了 {ms} 毫秒");
-
-            sw.Stop();
-        }
-
-        private void TestRecursionMS(int testNum, Stopwatch sw)
-        {
-            sw.Restart();
-
-            var count = Recursion(testNum);
-
-            long ms = sw.ElapsedMilliseconds;
-
-            Console.WriteLine($"测试数值：{testNum},需要最少 {count} 个平方数,RecursionMS 方法使用了 {ms} 毫秒");
-
-            sw.Stop();
-        }
-
-        private void TestDP(int testNum, Stopwatch sw)
-        {
-            sw.Restart();
-
-            var count = DP(testNum);
-
-            long ms = sw.ElapsedMilliseconds;
-
-            Console.WriteLine($"测试数值：{testNum},需要最少 {count} 个平方数,TestDP 方法使用了 {ms} 毫秒");
-
-            sw.Stop();
-        }
     }
 }
