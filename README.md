@@ -18,14 +18,17 @@
 ## 知识点
 
 ### 排序算法
- 
-十大经典排序算法(https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)：
+
+https://zh.wikipedia.org/zh-cn/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95
+https://www.runoob.com/w3cnote/ten-sorting-algorithm.html
+
+十大经典排序算法：
+ * 选择排序：最直观，最简单的排序算法了，就是效率不行~
  * 冒泡排序
- * 选择排序
- * 插入排序
- * 希尔排序
- * 归并排序
- * 快速排序
+ * 插入排序：是时候将多年的打扑克经验，总结成一种算法了~
+ * 希尔排序：需要了解`插入排序`
+ * 归并排序：分而治之 与 递归 的经典应用例子，为学习`快速排序`做准备~
+ * 快速排序：分而治之 与 递归 的经典应用例子！！！
  * 堆排序
  * 计数排序
  * 桶排序

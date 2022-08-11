@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+
 using Xunit;
 
 namespace SortingAlgorithm.Test
 {
     public class SelectionSort_Test
     {
-        [Fact]
-        public void RunTest()
+        [Fact(Timeout = Expiration.Timeout)]
+        public async void RunTest()
         {
-            foreach (var item in TestData.Cases)
+            await Task.Run(() =>
             {
-                BubbleSort.Sort(item.Input);
+                foreach (var item in TestData.Cases)
+                {
+                    SelectionSort.Sort(item.Input);
 
-                Assert.Equal<int>(item.Expected, item.Input);
-            }
+                    Assert.Equal<int>(item.Expected, item.Input);
+                }
+            });
         }
     }
 }

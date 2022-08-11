@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 using Xunit;
 
+
 namespace SortingAlgorithm.Test
 {
-    public class InsertionSort_Test
+    public class ShellSort_Test
     {
         [Fact(Timeout = Expiration.Timeout)]
         public async void RunTest()
@@ -17,7 +18,7 @@ namespace SortingAlgorithm.Test
             {
                 foreach (var item in TestData.Cases)
                 {
-                    InsertionSort.Sort(item.Input);
+                    ShellSort.Sort(item.Input);
 
                     Assert.Equal<int>(item.Expected, item.Input);
                 }

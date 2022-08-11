@@ -90,14 +90,17 @@ namespace SortingAlgorithm
         // 容易理解，但耗内存！不推荐使用！
         public static List<int> Sort(List<int> nums)
         {
+            // 分而治之的步骤：
+            // 1. 找出基线条件，这个条件必须尽可能简单
+            // 零个，或一个数，就是完美的有序
             if (nums.Count <= 1)
                 return nums;
 
             int pivotValue = nums[0];// 取第一个值作为基准
 
             var less = new List<int>();   // 存放比基准小的
-            var greater = new List<int>();// 存放比基准大的
             var equal = new List<int>();  // 存放与基准相等的
+            var greater = new List<int>();// 存放比基准大的
 
             foreach (var item in nums)
             {
@@ -110,9 +113,9 @@ namespace SortingAlgorithm
             }
 
             var join = new List<int>();
-            join.AddRange(Sort(less));
+            join.AddRange(Sort(less)); // 分而治之的步骤：2. 不断将问题分解(或者说缩小规模)，直到符合基线条件
             join.AddRange(equal);// 基准不用再递归了！
-            join.AddRange(Sort(greater));
+            join.AddRange(Sort(greater)); // 分而治之的步骤：2. 不断将问题分解(或者说缩小规模)，直到符合基线条件
             return join;
         }
     }

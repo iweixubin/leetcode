@@ -1,33 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Xunit;
 using System.Linq;
+using System.Threading.Tasks;
+
+using Xunit;
 
 namespace SortingAlgorithm.Test
 {
     public class QuickSort_Test
     {
-        [Fact]
-        public void RunTest()
+        [Fact(Timeout = Expiration.Timeout)]
+        public async void RunTest()
         {
-            foreach (var item in TestData.Cases)
+            await Task.Run(() =>
             {
-                QuickSort.Sort(item.Input);
+                foreach (var item in TestData.Cases)
+                {
+                    QuickSort.Sort(item.Input);
 
-                Assert.Equal<int>(item.Expected, item.Input);
-            }
+                    Assert.Equal<int>(item.Expected, item.Input);
+                }
+            });
         }
 
-        [Fact]
-        public void RunTest_Intelligible()
+        [Fact(Timeout = Expiration.Timeout)]
+        public async void RunTest_Intelligible()
         {
-            foreach (var item in TestData.Cases)
-            {
-                var ouput = QuickSort.Sort(item.Input.ToList()).ToArray();
+            await Task.Run(() =>
+             {
+                 foreach (var item in TestData.Cases)
+                 {
+                     var ouput = QuickSort.Sort(item.Input.ToList()).ToArray();
 
-                Assert.Equal<int>(item.Expected, ouput);
-            }
+                     Assert.Equal<int>(item.Expected, ouput);
+                 }
+             });
         }
     }
 }

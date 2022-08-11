@@ -6,6 +6,13 @@ using System.Linq;
 
 namespace SortingAlgorithm.Test
 {
+    public static class Expiration
+    {
+        public const int Second = 1000;
+
+        public const int Timeout = Second * 3;
+    }
+
     public static class TestData
     {
         public class Case
@@ -56,6 +63,14 @@ namespace SortingAlgorithm.Test
                     Input = new int[] { 4, 1, 3, 3, 9, 7 },
                     Expected = new int[] { 1, 3, 3, 4, 7, 9 }
                 },
+                new Case{
+                    Input=new int[] {13, 14, 94, 33, 82, 25, 59, 94, 65, 23, 45, 27, 73, 25, 39, 10},
+                    Expected=new int[] {10, 13, 14, 23, 25, 25, 27, 33, 39, 45, 59, 65, 73, 82, 94, 94}
+                },
+                new Case{
+                    Input=new int[] {55, 94, 87, 1, 4, 32, 11, 77, 39, 42, 64, 53, 70, 12, 9},
+                    Expected=new int[] {1, 4, 9, 11, 12, 32, 39, 42, 53, 55, 64, 70, 77, 87, 94}
+                }
             };
 
             return cases;
@@ -65,6 +80,7 @@ namespace SortingAlgorithm.Test
         {
             get
             {
+                // 防止多次运行，改变了 Input 和 Expected
                 var cases = SomeCases();
                 Case[] clones = new Case[cases.Length];
                 for (int i = 0; i < cases.Length; i++)

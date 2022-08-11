@@ -50,20 +50,6 @@ namespace SortingAlgorithm
 
         public static void Sort(int[] nums)
         {
-            if (nums.Length == 0 || nums.Length == 1)
-                return;
-
-            if (nums.Length == 2)
-            {
-                if (nums[0] <= nums[1])
-                    return;
-                else
-                {
-                    Swap(ref nums[0], ref nums[1]);
-                    return;
-                }
-            }
-
             for (int i = 0; i < nums.Length; i++)
             {
                 int swapIndex = SelectionSmallestIndex(nums, i);

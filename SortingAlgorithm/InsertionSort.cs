@@ -10,6 +10,8 @@ namespace SortingAlgorithm
     public static class InsertionSort
     {
         // 动图演示：https://www.runoob.com/w3cnote/insertion-sort.html
+        // 静图演示：https://m.runoob.com/data-structures/insertion-sort.html
+        
         // 插入排序和打扑克牌时，从牌桌上逐一拿起扑克牌，在手上排序的过程相同。
 
         // 首先拿起第一张牌 5, 手上有 {5}
