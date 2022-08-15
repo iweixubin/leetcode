@@ -59,10 +59,6 @@ namespace SortingAlgorithm.Test
                     Input = new int[] { 4, 1, 3, 9, 7 },
                     Expected = new int[] { 1, 3, 4, 7, 9 }
                 },
-                new Case {
-                    Input = new int[] { 4, 1, 3, 3, 9, 7 },
-                    Expected = new int[] { 1, 3, 3, 4, 7, 9 }
-                },
                 new Case{
                     Input=new int[] {13, 14, 94, 33, 82, 25, 59, 94, 65, 23, 45, 27, 73, 25, 39, 10},
                     Expected=new int[] {10, 13, 14, 23, 25, 25, 27, 33, 39, 45, 59, 65, 73, 82, 94, 94}
