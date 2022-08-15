@@ -13,6 +13,10 @@ namespace SortingAlgorithm
         // https://www.runoob.com/w3cnote/merge-sort.html
         // https://zh.wikipedia.org/zh-cn/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F
 
+        // 本例子是体现算法思维步骤的例子。
+        // 怎么在一个数组上操作，做到 In-place(占用常数内存，不占用额外内存)，请看上面的链接~
+
+        // 递归法（Top-down）
         public static List<int> Sort(List<int> nums)
         {
             // 分而治之的步骤：
@@ -77,6 +81,42 @@ namespace SortingAlgorithm
             }
 
             return combine;
+        }
+
+        // 迭代法（Bottom-up）
+        public static List<int> Sort(int[] nums)
+        {
+            // 1. 将序列每相邻两个数字进行归并操作，形成 ceil(n/2) 个序列，排序后每个序列包含两/一个元素
+            // 2. 若此时序列数不是1个则将上述序列再次归并，形成 ceil(n/4) 个序列，每个序列包含四/三个元素
+            // 3. 重复步骤2，直到所有元素排序完毕，即序列数为1
+
+            // 我的粗暴做法是：
+            // 1. 将每个数字变成序列 放到队列中
+            // 2. 抽出两个序列进行归并，将归并结果放回队列中
+            // 3. 重复 步骤2，直到队列中只有1个序列
+
+            Queue<List<int>> queue = new Queue<List<int>>();
+
+            foreach (var item in nums)
+                queue.Enqueue(new List<int>() { item });
+
+            while (true)
+            {
+                if (queue.Count == 1)
+                    break;
+
+                // 将每相邻两个的序列进行归并操作
+
+                // 挑选出相邻两个的序列
+                var a = queue.Dequeue();
+                var b = queue.Dequeue();
+
+                // 归并操作后放回队列
+                var combine = Merge(a, b);
+                queue.Enqueue(combine);
+            }
+
+            return queue.Peek();
         }
     }
 }
