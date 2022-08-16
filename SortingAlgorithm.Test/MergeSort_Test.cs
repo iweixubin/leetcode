@@ -75,7 +75,7 @@ namespace SortingAlgorithm.Test
             if (n == 2)
                 return new int[] { 0, 1 };
 
-            var fib = Enumerable.Repeat<int>(0, n).ToArray();
+            var fib = new int[n];
             fib[0] = 0;
             fib[1] = 1;
 
