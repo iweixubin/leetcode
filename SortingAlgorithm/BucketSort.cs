@@ -9,5 +9,7 @@ namespace SortingAlgorithm
     /// </summary>
     public static class BucketSort
     {
+        // 比较字符串
+        // 同一个桶装的是相同长度的字符串
     }
 }
